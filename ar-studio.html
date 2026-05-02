@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AR Studio — Premium Websites for Local Businesses</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Barlow:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F5F0;
+  --cream2:#EDE9E0;
+  --ink:#111110;
+  --ink2:#222220;
+  --muted:#888880;
+  --red:#E8200A;
+  --border:rgba(17,17,16,0.14);
+  --border-heavy:#111110;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+/* NAV */
+nav{
+  background:var(--cream);
+  border-bottom:2px solid var(--border-heavy);
+  padding:0 40px;
+  display:flex;align-items:stretch;
+  height:48px;
+}
+.nav-logo{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px;font-weight:800;letter-spacing:.06em;
+  color:var(--ink);text-decoration:none;
+  display:flex;align-items:center;
+  border-right:1px solid var(--border);
+  padding-right:24px;margin-right:0;
+}
+.nav-logo span{color:var(--red)}
+.nav-tagline{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);display:flex;align-items:center;
+  padding:0 24px;border-right:1px solid var(--border);
+}
+.nav-links{display:flex;align-items:stretch;list-style:none;flex:1}
+.nav-links li{display:flex}
+.nav-links a{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;
+  display:flex;align-items:center;padding:0 20px;
+  border-right:1px solid var(--border);
+  transition:color .15s,background .15s;
+}
+.nav-links a:hover{color:var(--ink);background:var(--cream2)}
+.nav-cta{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--red);color:#fff;text-decoration:none;
+  display:flex;align-items:center;padding:0 24px;margin-left:auto;
+  transition:opacity .15s;
+}
+.nav-cta:hover{opacity:.88}
+
+/* HERO */
+.hero{border-bottom:2px solid var(--border-heavy)}
+.hero-inner{display:grid;grid-template-columns:1fr 1px 1fr;min-height:480px}
+
+/* LEFT */
+.hero-left{
+  padding:40px 36px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  border-right:none;
+}
+.hero-issue{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--red);margin-bottom:20px;
+  display:flex;align-items:center;gap:12px;
+}
+.hero-issue::after{content:'';flex:1;height:1px;background:var(--border)}
+.hero-h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(46px,5.5vw,74px);
+  font-weight:900;line-height:.95;letter-spacing:-.02em;
+  color:var(--ink);margin-bottom:20px;flex:1;
+}
+.hero-h1 em{font-style:italic;color:var(--red)}
+.hero-deck{
+  font-size:15px;line-height:1.75;color:var(--ink2);
+  border-top:1px solid var(--border);padding-top:16px;margin-bottom:20px;
+}
+.hero-byline{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;
+}
+.hero-byline span{color:var(--red)}
+.hero-cta-row{
+  display:flex;align-items:center;gap:16px;
+  padding-top:20px;border-top:2px solid var(--border-heavy);
+  margin-top:20px;
+}
+.btn-ink{
+  background:var(--ink);color:var(--cream);
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  padding:12px 28px;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:background .15s;
+}
+.btn-ink:hover{background:var(--red)}
+.btn-link{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;
+  border-bottom:1px solid var(--border);padding-bottom:2px;
+  transition:color .15s,border-color .15s;
+}
+.btn-link:hover{color:var(--ink);border-color:var(--ink)}
+
+/* DIVIDER */
+.v-rule{background:var(--border-heavy);width:2px;flex-shrink:0}
+
+/* RIGHT — tiles */
+.hero-right{display:grid;grid-template-rows:1fr 1px 1fr;min-height:0}
+.hero-tile{
+  padding:28px 32px;display:flex;flex-direction:column;gap:10px;
+}
+.tile-cat{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--red);
+}
+.tile-h{
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-weight:700;color:var(--ink);line-height:1.15;
+}
+.tile-body{font-size:13px;line-height:1.7;color:var(--ink2)}
+.tile-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.ttag{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 8px;border:1px solid var(--border);color:var(--muted);
+}
+.h-rule{background:var(--border-heavy);height:2px;flex-shrink:0}
+
+/* BOTTOM BAR */
+.hero-bar{
+  background:var(--ink);
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:2px solid var(--border-heavy);
+}
+.bar-cell{
+  padding:16px 24px;border-right:1px solid rgba(255,255,255,.08);
+  display:flex;flex-direction:column;gap:3px;
+}
+.bar-cell:last-child{border-right:none}
+.bar-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:24px;font-weight:800;color:#fff;letter-spacing:.02em;line-height:1;
+}
+.bar-label{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);
+}
+
+/* SECTION SHARED */
+.section{border-bottom:2px solid var(--border-heavy)}
+.section-inner{padding:0 40px}
+.sec-header{
+  border-bottom:1px solid var(--border);
+  padding:14px 0;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.sec-label{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--red);display:flex;align-items:center;gap:10px;
+}
+.sec-label::before{content:'';display:block;width:16px;height:2px;background:var(--red)}
+.sec-aside{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* HOW IT WORKS */
+#process .steps{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border-top:none;
+}
+.step{
+  padding:28px 24px 28px 0;
+  border-right:1px solid var(--border);
+}
+.step:last-child{border-right:none}
+.step-n{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--muted);
+  margin-bottom:12px;display:flex;align-items:center;gap:8px;
+}
+.step-n::after{content:'';flex:1;height:1px;background:var(--border)}
+.step-h{
+  font-family:'Playfair Display',serif;
+  font-size:18px;font-weight:700;color:var(--ink);
+  margin-bottom:10px;line-height:1.2;
+}
+.step-p{font-size:13px;color:var(--ink2);line-height:1.7}
+
+/* PORTFOLIO */
+#work .work-grid{
+  display:grid;grid-template-columns:1fr 2px 1fr;gap:0;
+  border-top:none;
+}
+.work-col{padding:28px 28px 28px 0}
+.work-col:last-child{padding:28px 0 28px 28px}
+.browser{border:1.5px solid var(--border-heavy);overflow:hidden;margin-bottom:16px}
+.bbar{
+  background:var(--cream2);border-bottom:1.5px solid var(--border-heavy);
+  padding:7px 12px;display:flex;align-items:center;gap:6px;
+}
+.bd{width:8px;height:8px;border-radius:50%}
+.burl{
+  flex:1;margin-left:6px;
+  background:var(--cream);border:1px solid var(--border);
+  padding:3px 10px;
+  font-family:'Barlow Condensed',sans-serif;font-size:10px;color:var(--muted);letter-spacing:.04em;
+}
+.screen-oak{
+  background:#1E130A;aspect-ratio:16/7;
+  display:flex;flex-direction:column;overflow:hidden;
+}
+.oak-n{height:32px;background:rgba(0,0,0,.5);border-bottom:1px solid rgba(201,147,58,.3);display:flex;align-items:center;padding:0 16px}
+.oak-logo{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;color:#C9933A}
+.oak-b{background:#C9933A;color:#1E130A;font-family:'Barlow Condensed',sans-serif;font-size:7px;font-weight:800;letter-spacing:.1em;padding:3px 10px;margin-left:auto;text-transform:uppercase}
+.oak-h{flex:1;background:linear-gradient(135deg,#1E130A 0%,#3B2010 60%,#1E130A 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.oak-tag{font-family:'Barlow Condensed',sans-serif;font-size:8px;letter-spacing:.18em;color:rgba(201,147,58,.6);text-transform:uppercase}
+.oak-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:#fff;line-height:.9;text-align:center}
+.oak-title em{color:#C9933A;font-style:normal}
+.oak-c{display:flex;gap:5px;padding:10px 16px;background:rgba(0,0,0,.3)}
+.oak-card{flex:1;height:24px;background:rgba(255,255,255,.05);border-top:2px solid #C9933A}
+.screen-4e{background:#0A0A0A;aspect-ratio:16/7;display:flex;flex-direction:column;overflow:hidden}
+.fe-n{height:30px;background:rgba(10,10,10,.97);border-bottom:1px solid #2A2A2A;display:flex;align-items:center;padding:0 16px;gap:8px}
+.fe-logo{font-family:'Playfair Display',serif;font-size:17px;font-weight:900;color:#D4A843;line-height:1}
+.fe-name{font-family:'Barlow Condensed',sans-serif;font-size:8px;letter-spacing:.14em;color:#fff;border-left:1.5px solid #D4A843;padding-left:7px;text-transform:uppercase}
+.fe-btn{background:#D4A843;color:#0A0A0A;font-family:'Barlow Condensed',sans-serif;font-size:7px;font-weight:800;letter-spacing:.1em;padding:3px 9px;text-transform:uppercase;margin-left:auto}
+.fe-h{flex:1;background:linear-gradient(160deg,#0A0A0A,#1A0A00);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.fe-big{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:#fff;line-height:.85}
+.fe-big span{color:#D4A843}
+.fe-tag{font-family:'Barlow Condensed',sans-serif;font-size:7px;letter-spacing:.16em;color:rgba(255,255,255,.3);text-transform:uppercase;border-top:1px solid rgba(212,168,67,.2);padding-top:4px;width:82%;text-align:center}
+.fe-c{display:flex;gap:5px;padding:9px 16px}
+.fe-card{flex:1;height:22px;background:#1A1A1A;border:1px solid #2A2A2A}
+
+.work-meta{border-top:1px solid var(--border);padding-top:14px}
+.wm-cat{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.wm-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.wm-desc{font-size:13px;color:var(--ink2);line-height:1.65}
+.wm-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.work-aside-card{
+  background:var(--ink);padding:24px;margin-bottom:0;
+}
+.wac-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px}
+.wac-h{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;font-style:italic;color:#fff;line-height:1.3;margin-bottom:16px}
+.wac-btn{display:block;text-align:center;background:var(--red);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:12px;text-decoration:none;transition:opacity .15s}
+.wac-btn:hover{opacity:.85}
+.work-aside-facts{margin-top:20px;display:flex;flex-direction:column;gap:0}
+.waf{padding:14px 0;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:4px}
+.waf:first-child{border-top:1px solid var(--border)}
+.waf-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.waf-val{font-size:13px;color:var(--ink2);line-height:1.6}
+
+/* PRICING */
+#pricing .pricing-top{
+  display:grid;grid-template-columns:1fr 2px 2fr;gap:0;
+  border-bottom:1px solid var(--border);
+  padding:28px 0;
+}
+#pricing .pt-left{padding-right:28px}
+#pricing .pt-left h2{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;line-height:1;letter-spacing:-.02em;color:var(--ink);margin-bottom:8px}
+#pricing .pt-left h2 em{font-style:italic;color:var(--red)}
+#pricing .pt-left p{font-size:13px;color:var(--muted);line-height:1.65}
+#pricing .pt-right{padding-left:28px;display:flex;align-items:center}
+#pricing .pt-right p{font-size:15px;color:var(--ink2);line-height:1.8}
+#pricing .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.tier{padding:24px 20px 24px 0;border-right:1px solid var(--border)}
+.tier:last-child{border-right:none}
+.tier:first-child{padding-left:0}
+.tier.feat{background:var(--ink);padding:24px 20px;margin:-1px 0}
+.t-pop{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.tier.feat .t-pop{color:#D4A843}
+.t-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.tier.feat .t-name{color:#fff}
+.t-tagline{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.tier.feat .t-tagline{color:rgba(255,255,255,.35);border-color:rgba(255,255,255,.1)}
+.t-price{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:800;color:var(--ink);line-height:1;letter-spacing:-.01em}
+.tier.feat .t-price{color:#fff}
+.t-price sup{font-size:20px;vertical-align:super;font-weight:600}
+.t-once{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.tier.feat .t-once{color:rgba(255,255,255,.3)}
+.t-feats{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.t-feats li{font-size:12.5px;color:var(--ink2);display:flex;gap:8px;line-height:1.45}
+.tier.feat .t-feats li{color:rgba(255,255,255,.6)}
+.chk{color:var(--red);font-weight:700;flex-shrink:0}
+.dim{opacity:.35}
+.t-btn{display:block;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:12px;text-decoration:none;transition:all .15s}
+.t-btn-out{border:1.5px solid var(--ink);color:var(--ink)}
+.t-btn-out:hover{background:var(--ink);color:var(--cream)}
+.t-btn-red{background:var(--red);color:#fff;border:1.5px solid var(--red)}
+.t-btn-red:hover{background:#c01a08;border-color:#c01a08}
+
+/* WHY */
+#why .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.why-col{border-right:1px solid var(--border);padding:0 24px 0 0;display:flex;flex-direction:column;gap:0}
+.why-col:last-child{border-right:none}
+.why-col:first-child{padding-left:0}
+.wi{padding:20px 0;border-bottom:1px solid var(--border)}
+.wi:last-child{border-bottom:none}
+.wi-n{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.wi-h{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--ink);margin-bottom:7px;line-height:1.2}
+.wi-p{font-size:13px;color:var(--ink2);line-height:1.7}
+
+/* TESTIMONIALS */
+#testimonials .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.tc{border-right:1px solid var(--border);padding:28px 24px 28px 0}
+.tc:last-child{border-right:none}
+.tc:first-child{padding-left:0}
+.tc-stars{font-size:13px;color:var(--red);letter-spacing:2px;margin-bottom:14px}
+.tc-quote{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--ink);line-height:1.75;margin-bottom:16px}
+.tc-quote::before{content:'\201C';font-size:32px;color:var(--red);line-height:1;display:block;margin-bottom:6px;font-style:normal}
+.tc-by{border-top:1px solid var(--border);padding-top:14px;display:flex;gap:10px;align-items:center}
+.tc-av{width:34px;height:34px;border-radius:50%;background:var(--cream2);border:1.5px solid var(--border-heavy);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:var(--ink);flex-shrink:0}
+.tc-name{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.tc-biz{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* CTA STRIP */
+.cta-strip{background:var(--ink);border-bottom:2px solid var(--red)}
+.cta-strip-inner{
+  padding:52px 40px;
+  display:grid;grid-template-columns:1fr 2px 1fr;gap:0;align-items:center;
+}
+.cta-left{padding-right:44px}
+.cta-issue{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.cta-issue::after{content:'';display:block;width:24px;height:1px;background:var(--red)}
+.cta-h{font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,54px);font-weight:900;color:#fff;line-height:1;letter-spacing:-.02em;margin-bottom:16px}
+.cta-h em{font-style:italic;color:#D4A843}
+.cta-p{font-size:14px;color:rgba(255,255,255,.45);line-height:1.75}
+.cta-right{padding-left:44px;display:flex;flex-direction:column;gap:12px}
+.btn-red{display:block;text-align:center;background:var(--red);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:16px 28px;text-decoration:none;transition:opacity .15s}
+.btn-red:hover{opacity:.85}
+.btn-outline-w{display:block;text-align:center;border:1.5px solid rgba(255,255,255,.18);color:rgba(255,255,255,.45);font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:16px 28px;text-decoration:none;transition:all .15s}
+.btn-outline-w:hover{border-color:#fff;color:#fff}
+.cta-note{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2);text-align:center}
+
+/* CONTACT */
+#contact .contact-grid{display:grid;grid-template-columns:1fr 2px 1.6fr;gap:0}
+.cl{padding:28px 36px 28px 0;display:flex;flex-direction:column;gap:20px}
+.cl h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.1}
+.cl h2 em{font-style:italic;color:var(--red)}
+.cl p{font-size:14px;color:var(--ink2);line-height:1.75}
+.cl-details{border-top:1px solid var(--border);padding-top:16px;display:flex;flex-direction:column;gap:0}
+.cld{padding:10px 0;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:2px}
+.cld:last-child{border-bottom:none}
+.cld-l{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.cld-v{font-size:13px;color:var(--ink)}
+.cr{padding:28px 0 28px 36px}
+.form{display:flex;flex-direction:column;gap:0}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.fg{display:flex;flex-direction:column;border-bottom:1px solid var(--border)}
+.fg.fl-r{border-left:1px solid var(--border)}
+.fl{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding:10px 0 3px}
+.fl.pad{padding-left:14px}
+.fi,.fs,.ft{background:transparent;border:none;outline:none;font-family:'Barlow',sans-serif;font-size:13px;color:var(--ink);padding:3px 0 10px;width:100%}
+.fi.pad,.fs.pad,.ft.pad{padding-left:14px}
+.fi::placeholder,.ft::placeholder{color:var(--muted);font-style:italic}
+.fs{cursor:pointer;-webkit-appearance:none}
+option{background:var(--cream)}
+.ft{resize:vertical;min-height:80px;line-height:1.6}
+.fsub{align-self:flex-start;background:var(--ink);color:var(--cream);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:14px 28px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:background .15s;margin-top:20px}
+.fsub:hover{background:var(--red)}
+.fsuc{display:none;margin-top:16px;border-left:3px solid var(--red);padding:12px 16px;background:var(--cream2);font-size:13px;color:var(--ink);line-height:1.6}
+
+/* FOOTER */
+footer{background:var(--ink)}
+.footer-grid{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;gap:0;padding:0 40px;border-bottom:1px solid rgba(255,255,255,.08)}
+.fc{padding:28px 24px}
+.fc:first-child{padding-left:0}
+.fc:last-child{padding-right:0}
+.fc-rule{background:rgba(255,255,255,.08);width:1px}
+.fc h4{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--red);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.08)}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fc li a{font-size:13px;color:rgba(255,255,255,.4);text-decoration:none;transition:color .15s}
+.fc li a:hover{color:#fff}
+.footer-logo{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;color:#fff;letter-spacing:.06em;margin-bottom:6px}
+.footer-logo span{color:var(--red)}
+.footer-tag{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:10px}
+.footer-desc{font-size:13px;color:rgba(255,255,255,.35);line-height:1.65}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding:14px 40px;flex-wrap:wrap;gap:8px}
+.footer-copy{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
+
+@media(max-width:960px){
+  nav{padding:0 20px}
+  .nav-tagline,.nav-links{display:none}
+  .hero-inner{grid-template-columns:1fr}
+  .v-rule{display:none}
+  .hero-left{padding:28px 20px}
+  .hero-right{padding:0 20px 20px}
+  .hero-bar{grid-template-columns:1fr 1fr}
+  .section-inner{padding:0 20px}
+  #process .steps,.why-grid,.test-grid,.footer-grid{grid-template-columns:1fr 1fr}
+  #work .work-grid,.cta-strip-inner,#contact .contact-grid{grid-template-columns:1fr}
+  .work-col:last-child,.cr,.cta-right{padding-left:0;padding-top:20px}
+  .cta-left{padding-right:0;padding-bottom:24px}
+  #pricing .pricing-top{grid-template-columns:1fr}
+  #pricing .pt-right{padding-left:0;padding-top:16px}
+  #pricing .tiers{grid-template-columns:1fr}
+  .tier.feat{margin:0}
+  .footer-bottom,.footer-grid{padding-left:20px;padding-right:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">AR<span>.</span>Studio</a>
+  <div class="nav-tagline">Premium Web Design · NE Ohio</div>
+  <ul class="nav-links">
+    <li><a href="#process">Process</a></li>
+    <li><a href="#work">Portfolio</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about">About Us</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Start a Project →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div>
+        <div class="hero-issue">Web Design · Issue No. 01</div>
+        <h1 class="hero-h1">Your business<br>deserves to<br>be <em>found.</em></h1>
+        <p class="hero-deck">Professional, handcrafted websites for restaurants, bars, lounges, and local businesses — delivered in 48 hours, flat-rate pricing, no payment until you approve every detail.</p>
+        <div class="hero-byline">
+          <span>By AR Studio</span>
+          <span style="color:var(--border-heavy)">·</span>
+          <span>Northeast Ohio</span>
+          <span style="color:var(--border-heavy)">·</span>
+          <span>Est. 2024</span>
+        </div>
+      </div>
+      <div class="hero-cta-row">
+        <a href="#contact" class="btn-ink">
+          Get Your Website
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5"/></svg>
+        </a>
+        <a href="#work" class="btn-link">See our portfolio</a>
+      </div>
+    </div>
+
+    <div class="v-rule"></div>
+
+    <!-- RIGHT — two tiles -->
+    <div class="hero-right">
+      <div class="hero-tile">
+        <div class="tile-cat">Latest Work — Bar &amp; Kitchen</div>
+        <div class="tile-h">The Oak Barrel</div>
+        <div class="tile-body">Full ordering site — menu by category, daily specials, events, Google Map, Toast integration for online orders. Delivered in 48 hours.</div>
+        <div class="tile-tags">
+          <span class="ttag">Menu</span>
+          <span class="ttag">Ordering</span>
+          <span class="ttag">Events</span>
+          <span class="ttag">Dark Theme</span>
+        </div>
+      </div>
+      <div class="h-rule"></div>
+      <div class="hero-tile">
+        <div class="tile-cat">Latest Work — Upscale Lounge</div>
+        <div class="tile-h">4Eleven Lounge</div>
+        <div class="tile-body">Upscale menu site with live food photos, sticky category nav, events &amp; nightlife section, bottle service, and DoorDash ordering integration.</div>
+        <div class="tile-tags">
+          <span class="ttag">Live Photos</span>
+          <span class="ttag">DoorDash</span>
+          <span class="ttag">Events</span>
+          <span class="ttag">Nightlife</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="hero-bar">
+    <div class="bar-cell">
+      <div class="bar-num">48h</div>
+      <div class="bar-label">Avg. Delivery</div>
+    </div>
+    <div class="bar-cell">
+      <div class="bar-num">$299</div>
+      <div class="bar-label">Starting At</div>
+    </div>
+    <div class="bar-cell">
+      <div class="bar-num">$0</div>
+      <div class="bar-label">Upfront Cost</div>
+    </div>
+    <div class="bar-cell">
+      <div class="bar-num">∞</div>
+      <div class="bar-label">Revisions Included</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section class="section" id="process">
+  <div class="section-inner">
+    <div class="sec-header rv">
+      <div class="sec-label">How It Works</div>
+      <div class="sec-aside">Four steps · Start to launch</div>
+    </div>
+    <div class="steps">
+      <div class="step rv">
+        <div class="step-n">Step 01</div>
+        <div class="step-h">Tell Us About Your Business</div>
+        <div class="step-p">Fill out our short form — your name, location, hours, menu or services, and what you want customers to do. Takes under 5 minutes.</div>
+      </div>
+      <div class="step rv d1">
+        <div class="step-n">Step 02</div>
+        <div class="step-h">We Design &amp; Build</div>
+        <div class="step-p">Our team designs your full custom website within 48 hours. Real photos, your actual content, your brand. Nothing generic — ever.</div>
+      </div>
+      <div class="step rv d2">
+        <div class="step-n">Step 03</div>
+        <div class="step-h">You Review &amp; Approve</div>
+        <div class="step-p">We send a private preview link. Request changes — colors, text, layout, photos. We revise until you're completely proud of it.</div>
+      </div>
+      <div class="step rv d3">
+        <div class="step-n">Step 04</div>
+        <div class="step-h">We Launch, You Grow</div>
+        <div class="step-p">Once approved, your site goes live. Customers find you online. You own everything — the code, domain, and hosting. No lock-in.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="section" id="work">
+  <div class="section-inner">
+    <div class="sec-header rv">
+      <div class="sec-label">Portfolio — Selected Works</div>
+      <div class="sec-aside">Real sites · Real businesses</div>
+    </div>
+    <div class="work-grid">
+      <div class="work-col rv">
+        <div class="browser">
+          <div class="bbar">
+            <div class="bd" style="background:#FF5F57"></div>
+            <div class="bd" style="background:#FEBC2E"></div>
+            <div class="bd" style="background:#28C840"></div>
+            <div class="burl">theoakbarrel.com</div>
+          </div>
+          <div class="screen-oak">
+            <div class="oak-n"><div class="oak-logo">The Oak Barrel</div><div class="oak-b">Order Online</div></div>
+            <div class="oak-h">
+              <div class="oak-tag">Valley View, Ohio · 5975 Canal Rd.</div>
+              <div class="oak-title">Good Food.<br><em>Great Pours.</em></div>
+            </div>
+            <div class="oak-c"><div class="oak-card"></div><div class="oak-card"></div><div class="oak-card"></div><div class="oak-card"></div></div>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div class="wm-cat">Bar &amp; Kitchen · Valley View, OH</div>
+          <div class="wm-title">The Oak Barrel</div>
+          <div class="wm-desc">Full ordering site with interactive menu by category, daily specials, events page, Google Map embed, and direct Toast integration.</div>
+          <div class="wm-tags">
+            <span class="ttag">Menu</span><span class="ttag">Online Ordering</span><span class="ttag">Events</span><span class="ttag">Google Maps</span><span class="ttag">Mobile Ready</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="v-rule"></div>
+
+      <div class="work-col rv d1" style="display:flex;flex-direction:column;gap:20px">
+        <div>
+          <div class="browser">
+            <div class="bbar">
+              <div class="bd" style="background:#FF5F57"></div>
+              <div class="bd" style="background:#FEBC2E"></div>
+              <div class="bd" style="background:#28C840"></div>
+              <div class="burl">4elevenlounge.com</div>
+            </div>
+            <div class="screen-4e">
+              <div class="fe-n"><div class="fe-logo">4</div><div class="fe-name">ELEVEN LOUNGE</div><div class="fe-btn">Order Now</div></div>
+              <div class="fe-h">
+                <div class="fe-big">Good <span>Food.</span></div>
+                <div class="fe-tag">Good Drinks · Good Vibes · Bedford, OH</div>
+              </div>
+              <div class="fe-c"><div class="fe-card"></div><div class="fe-card"></div><div class="fe-card"></div><div class="fe-card"></div></div>
+            </div>
+          </div>
+          <div class="work-meta">
+            <div class="wm-cat">Upscale Lounge · Bedford, OH</div>
+            <div class="wm-title">4Eleven Lounge</div>
+            <div class="wm-desc">Upscale menu site with live food photos via API, sticky category tabs, events section, and DoorDash ordering integration.</div>
+            <div class="wm-tags">
+              <span class="ttag">Live Photos</span><span class="ttag">DoorDash</span><span class="ttag">Menu Tabs</span><span class="ttag">Nightlife</span><span class="ttag">Events</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-aside-card">
+          <div class="wac-label">Next Availability</div>
+          <div class="wac-h">"Your business could look this good online."</div>
+          <a href="#contact" class="wac-btn">Start Your Project →</a>
+        </div>
+
+        <div class="work-aside-facts">
+          <div class="waf"><div class="waf-label">Custom Design</div><div class="waf-val">Built from scratch — no templates, ever. Matches your brand, your vibe, your customers.</div></div>
+          <div class="waf"><div class="waf-label">You Own Everything</div><div class="waf-val">Code, domain, hosting — all yours. No monthly fees, no subscriptions, no lock-in.</div></div>
+          <div class="waf"><div class="waf-label">Pay After Approval</div><div class="waf-val">Zero financial risk. We build first, you review, you pay only once you're happy.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="section-inner">
+    <div class="sec-header rv">
+      <div class="sec-label">Pricing — Flat Rate, No Surprises</div>
+      <div class="sec-aside">One payment · Yours forever</div>
+    </div>
+    <div class="pricing-top rv">
+      <div class="pt-left">
+        <h2>One payment.<br><em>Yours forever.</em></h2>
+        <p>No monthly fees.<br>No subscriptions.<br>No lock-in. Ever.</p>
+      </div>
+      <div class="v-rule"></div>
+      <div class="pt-right">
+        <p>You pay one flat rate and own your website completely — forever. We only collect payment after you've reviewed every detail and said you're happy. Zero risk on your end.</p>
+      </div>
+    </div>
+    <div class="tiers rv">
+      <div class="tier">
+        <div class="t-pop">Starter Package</div>
+        <div class="t-name">Starter</div>
+        <div class="t-tagline">For businesses that just need a clean presence online fast.</div>
+        <div class="t-price"><sup>$</sup>299</div>
+        <div class="t-once">One-time · Yours forever</div>
+        <ul class="t-feats">
+          <li><span class="chk">✓</span>Single-page website</li>
+          <li><span class="chk">✓</span>Mobile responsive design</li>
+          <li><span class="chk">✓</span>Business info, hours &amp; map</li>
+          <li><span class="chk">✓</span>Contact form</li>
+          <li><span class="chk">✓</span>2 revision rounds</li>
+          <li><span class="chk">✓</span>Delivered in 48 hours</li>
+          <li class="dim"><span class="chk">–</span>Menu or services pages</li>
+          <li class="dim"><span class="chk">–</span>Online ordering integration</li>
+          <li class="dim"><span class="chk">–</span>Events &amp; specials</li>
+        </ul>
+        <a href="#contact" class="t-btn t-btn-out">Get Started</a>
+      </div>
+      <div class="tier feat">
+        <div class="t-pop">★ Most Popular</div>
+        <div class="t-name">Professional</div>
+        <div class="t-tagline">Full multi-page site. Everything your customers need to choose you.</div>
+        <div class="t-price"><sup>$</sup>599</div>
+        <div class="t-once">One-time · Yours forever</div>
+        <ul class="t-feats">
+          <li><span class="chk">✓</span>Multi-page website</li>
+          <li><span class="chk">✓</span>Mobile responsive design</li>
+          <li><span class="chk">✓</span>Full menu or services section</li>
+          <li><span class="chk">✓</span>Real food / product photos</li>
+          <li><span class="chk">✓</span>Events &amp; daily specials page</li>
+          <li><span class="chk">✓</span>Online ordering integration</li>
+          <li><span class="chk">✓</span>Contact form &amp; map</li>
+          <li><span class="chk">✓</span>Unlimited revisions</li>
+          <li><span class="chk">✓</span>Delivered in 48–72 hours</li>
+        </ul>
+        <a href="#contact" class="t-btn t-btn-red">Get Started →</a>
+      </div>
+      <div class="tier">
+        <div class="t-pop">Premium Package</div>
+        <div class="t-name">Premium</div>
+        <div class="t-tagline">For businesses that want to dominate every competitor in their area.</div>
+        <div class="t-price"><sup>$</sup>999</div>
+        <div class="t-once">One-time · Yours forever</div>
+        <ul class="t-feats">
+          <li><span class="chk">✓</span>Everything in Professional</li>
+          <li><span class="chk">✓</span>Custom animations &amp; effects</li>
+          <li><span class="chk">✓</span>Online booking / reservations</li>
+          <li><span class="chk">✓</span>Custom domain setup</li>
+          <li><span class="chk">✓</span>SEO optimization</li>
+          <li><span class="chk">✓</span>Google Analytics setup</li>
+          <li><span class="chk">✓</span>30-day post-launch support</li>
+          <li><span class="chk">✓</span>Speed optimization</li>
+          <li><span class="chk">✓</span>Priority 24h delivery</li>
+        </ul>
+        <a href="#contact" class="t-btn t-btn-out">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section" id="why">
+  <div class="section-inner">
+    <div class="sec-header rv">
+      <div class="sec-label">Why AR Studio</div>
+      <div class="sec-aside">Six reasons · Built for local</div>
+    </div>
+    <div class="why-grid">
+      <div class="why-col">
+        <div class="wi rv"><div class="wi-n">01</div><div class="wi-h">Custom Design, Not Templates</div><div class="wi-p">Every site is built from scratch for your business. Your brand, your vibe, your customers. We've never used a template.</div></div>
+        <div class="wi rv d1"><div class="wi-n">02</div><div class="wi-h">48-Hour Delivery</div><div class="wi-p">Most agencies take weeks. We deliver a full, professional site in 48 hours. Fast because we're focused — not rushed.</div></div>
+      </div>
+      <div class="why-col">
+        <div class="wi rv"><div class="wi-n">03</div><div class="wi-h">Pay Only After Approval</div><div class="wi-p">We build first. You review. Only once you're completely happy do you pay a single cent. Zero financial risk.</div></div>
+        <div class="wi rv d1"><div class="wi-n">04</div><div class="wi-h">You Own Everything</div><div class="wi-p">Code, domain, hosting — all yours. No subscriptions. No monthly fees. Take your site anywhere at any time.</div></div>
+      </div>
+      <div class="why-col">
+        <div class="wi rv"><div class="wi-n">05</div><div class="wi-h">Unlimited Revisions</div><div class="wi-p">Professional and Premium clients get unlimited revisions. We don't consider it done until you consider it done.</div></div>
+        <div class="wi rv d1"><div class="wi-n">06</div><div class="wi-h">Perfect on Every Device</div><div class="wi-p">Over 70% of customers browse on mobile. Every site we build is pixel-perfect on phones, tablets, and desktops.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="section-inner">
+    <div class="sec-header rv">
+      <div class="sec-label">Client Testimonials</div>
+      <div class="sec-aside">What our clients say</div>
+    </div>
+    <div class="test-grid">
+      <div class="tc rv">
+        <div class="tc-stars">★★★★★</div>
+        <div class="tc-quote">We had no website at all — just a Facebook page. AR Studio built us something that looks better than restaurants ten times our size. Customers tell us they found us on Google all the time now.</div>
+        <div class="tc-by"><div class="tc-av">MJ</div><div><div class="tc-name">Marcus J.</div><div class="tc-biz">The Oak Barrel · Valley View, OH</div></div></div>
+      </div>
+      <div class="tc rv d1">
+        <div class="tc-stars">★★★★★</div>
+        <div class="tc-quote">I was blown away by how fast they turned it around. Sent them my info Monday, had a full site to review by Wednesday. It looked exactly like our lounge — upscale, clean, polished.</div>
+        <div class="tc-by"><div class="tc-av">DW</div><div><div class="tc-name">Deja W.</div><div class="tc-biz">4Eleven Lounge · Bedford, OH</div></div></div>
+      </div>
+      <div class="tc rv d2">
+        <div class="tc-stars">★★★★★</div>
+        <div class="tc-quote">I've paid over $2,000 for websites before that weren't half as good. AR Studio delivered for $599 in two days, and our online orders jumped 40% within the first month of being live.</div>
+        <div class="tc-by"><div class="tc-av">RK</div><div><div class="tc-name">Rachel K.</div><div class="tc-biz">Restaurant Owner · Cleveland, OH</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="sec-header rv">
+      <div class="sec-label">About AR Studio — Who We Are</div>
+      <div class="sec-aside">Adil &amp; Rahul · Northeast Ohio</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 2px 1fr;gap:0;">
+      <div style="padding:32px 36px 32px 0;" class="rv">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--red);margin-bottom:14px;">AR stands for Adil &amp; Rahul</div>
+        <div style="font-family:'Playfair Display',serif;font-size:32px;font-weight:900;line-height:1.05;letter-spacing:-.02em;color:var(--ink);margin-bottom:20px;">Two guys who know<br>how to <em style="color:var(--red);font-style:italic;">build things</em><br>that work.</div>
+        <p style="font-size:14px;color:var(--ink2);line-height:1.8;margin-bottom:16px;">We're Adil and Rahul — the two people behind every website AR Studio delivers. We didn't start as a big agency. We started as two guys who were tired of seeing great local businesses get ignored online simply because they didn't have the right website.</p>
+        <p style="font-size:14px;color:var(--ink2);line-height:1.8;">We've been in this industry long enough to know what actually moves the needle for local businesses — not just pretty design, but sites that convert visitors into customers. Every site we've built has delivered real, measurable results for the owners who trusted us.</p>
+      </div>
+      <div class="v-rule"></div>
+      <div style="padding:32px 0 32px 36px;display:flex;flex-direction:column;gap:0;" class="rv d1">
+        <div style="display:grid;grid-template-columns:1fr 1px 1fr;gap:0;border-bottom:1px solid var(--border);margin-bottom:0;">
+          <div style="padding:20px 20px 20px 0;border-right:1px solid var(--border);">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:8px;">Adil</div>
+            <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.2;">Design &amp; Front-End</div>
+            <div style="font-size:13px;color:var(--ink2);line-height:1.7;">Adil handles every pixel of the visual design. Years of experience building interfaces that look sharp and convert visitors into paying customers.</div>
+          </div>
+          <div style="background:var(--border);width:1px;"></div>
+          <div style="padding:20px 0 20px 20px;">
+            <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:8px;">Rahul</div>
+            <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.2;">Strategy &amp; Development</div>
+            <div style="font-size:13px;color:var(--ink2);line-height:1.7;">Rahul drives the strategy, integrations, and technical build. He ensures every site is fast, functional, and connected to the tools your business actually uses.</div>
+          </div>
+        </div>
+        <div style="padding:20px 0;border-bottom:1px solid var(--border);">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:6px;">Our Track Record</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.7;">We've worked with restaurants, bars, lounges, and service businesses across Northeast Ohio. Our clients see real results — more Google visibility, more online orders, more calls. Not because we got lucky, but because we've refined our process over years of doing exactly this.</div>
+        </div>
+        <div style="padding:20px 0;border-bottom:1px solid var(--border);">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:6px;">Why We Do It This Way</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.7;">We keep it lean — just the two of us — so we can move fast, stay affordable, and give every client our full attention. No outsourcing, no handoffs. When you work with AR Studio, you're working with Adil and Rahul directly.</div>
+        </div>
+        <div style="padding:20px 0 0;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:6px;">Our Promise</div>
+          <div style="font-size:13px;color:var(--ink2);line-height:1.7;">We don't collect a cent until you've seen your site, reviewed every detail, and said you're happy. That's not just a policy — that's how we'd want to be treated.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div class="cta-strip-inner">
+    <div class="cta-left rv">
+      <div class="cta-issue">Special Edition · Get Found Online</div>
+      <h2 class="cta-h">Ready to get<br><em>found online?</em></h2>
+      <p class="cta-p">Fill out our short form and we'll start building your site within 24 hours. No payment until you approve every single detail. No risk. No surprises.</p>
+    </div>
+    <div style="background:rgba(255,255,255,.08);width:2px;flex-shrink:0"></div>
+    <div class="cta-right rv d1">
+      <a href="#contact" class="btn-red">Get Your Website →</a>
+      <a href="tel:+12163017112" class="btn-outline-w">Call Us Directly</a>
+      <p class="cta-note">No payment until you're 100% satisfied.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="sec-header rv">
+      <div class="sec-label">Contact — Start a Project</div>
+      <div class="sec-aside">Response within a few hours</div>
+    </div>
+    <div class="contact-grid">
+      <div class="cl rv">
+        <h2>Let's build<br><em>your site.</em></h2>
+        <p>Tell us about your business and we'll get back to you within a few hours with a clear plan and timeline. We'll confirm the details and get started immediately.</p>
+        <div class="cl-details">
+          <div class="cld"><div class="cld-l">Email</div><div class="cld-v">Email us directly</div></div>
+          <div class="cld"><div class="cld-l">Phone &amp; Text</div><div class="cld-v">(216) 301-7112</div></div>
+          <div class="cld"><div class="cld-l">Response Time</div><div class="cld-v">Within a few hours</div></div>
+          <div class="cld"><div class="cld-l">When You Pay</div><div class="cld-v">Only after you approve</div></div>
+        </div>
+      </div>
+      <div class="v-rule"></div>
+      <div class="cr rv d1">
+        <form class="form" onsubmit="handleSubmit(event)">
+          <div class="frow">
+            <div class="fg"><div class="fl">Your Name</div><input class="fi" type="text" placeholder="John Smith" required></div>
+            <div class="fg fl-r"><div class="fl pad">Business Name</div><input class="fi pad" type="text" placeholder="Your Business" required></div>
+          </div>
+          <div class="frow">
+            <div class="fg"><div class="fl">Email</div><input class="fi" type="email" placeholder="you@business.com" required></div>
+            <div class="fg fl-r"><div class="fl pad">Phone / Text</div><input class="fi pad" type="tel" placeholder="(216) 301-7112"></div>
+          </div>
+          <div class="fg"><div class="fl">Business Type</div>
+            <select class="fs"><option value="">Select your business type…</option><option>Restaurant / Bar / Lounge</option><option>Café / Coffee Shop</option><option>Retail Store</option><option>Salon / Spa / Barber</option><option>Auto / Mechanic Shop</option><option>Contractor / Home Services</option><option>Medical / Dental</option><option>Fitness / Gym</option><option>Other Local Business</option></select>
+          </div>
+          <div class="fg"><div class="fl">Package</div>
+            <select class="fs"><option value="">Select a package…</option><option>Starter — $299</option><option>Professional — $599 (Most Popular)</option><option>Premium — $999</option><option>Not sure yet — let's talk</option></select>
+          </div>
+          <div class="fg" style="border-bottom:none"><div class="fl">Tell Us About Your Business</div>
+            <textarea class="ft" placeholder="What does your business do? Where are you located? What do you want customers to do on your site? Any sites you like the look of?"></textarea>
+          </div>
+          <button type="submit" class="fsub" id="sub-btn">
+            Send Request
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5"/></svg>
+          </button>
+          <div class="fsuc" id="form-ok">✦ &nbsp;<strong>Received.</strong> We'll be in touch within a few hours to get your project started.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="fc">
+      <div class="footer-logo">AR<span>.</span>Studio</div>
+      <div class="footer-tag">Premium Web Design · NE Ohio</div>
+      <div class="footer-desc">Professional websites for local businesses. Custom design, flat pricing, fast delivery. You own everything, forever.</div>
+    </div>
+    <div class="fc-rule"></div>
+    <div class="fc">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#work">Portfolio</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#why">Why AR Studio</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="fc-rule"></div>
+    <div class="fc">
+      <h4>Get In Touch</h4>
+      <ul>
+        <li><a href="mailto:r90601871@gmail.com">Email Us</a></li>
+        <li><a href="tel:+12163017112">(216) 301-7112</a></li>
+        <li><a href="#contact">Start a Project →</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 AR Studio · Premium Websites for Local Businesses · Northeast Ohio</span>
+    <span class="footer-copy">No payment until you approve · You own it forever</span>
+  </div>
+</footer>
+
+<script>
+const rv = document.querySelectorAll('.rv');
+const obs = new IntersectionObserver(e => {
+  e.forEach(x => { if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target)} });
+},{threshold:.1});
+rv.forEach(el => obs.observe(el));
+function handleSubmit(e){
+  e.preventDefault();
+  const btn=document.getElementById('sub-btn');
+  const name=document.querySelector('.fi[type="text"]').value;
+  const biz=document.querySelectorAll('.fi[type="text"]')[1].value;
+  const email=document.querySelector('.fi[type="email"]').value;
+  const phone=document.querySelector('.fi[type="tel"]').value;
+  const btype=document.querySelector('.fs').value;
+  const pkg=document.querySelectorAll('.fs')[1].value;
+  const msg=document.querySelector('.ft').value;
+  const body=encodeURIComponent(
+    'Name: '+name+'\nBusiness: '+biz+'\nEmail: '+email+'\nPhone: '+phone+
+    '\nBusiness Type: '+btype+'\nPackage: '+pkg+'\n\nMessage:\n'+msg
+  );
+  const subject=encodeURIComponent('New Website Request — '+biz);
+  window.location.href='mailto:r90601871@gmail.com?subject='+subject+'&body='+body;
+  btn.textContent='Opening Email…';btn.disabled=true;
+  setTimeout(()=>{btn.style.display='none';document.getElementById('form-ok').style.display='block'},1200);
+}
+</script>
+</body>
+</html>
